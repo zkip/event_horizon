@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="BuyMax">全力买</string>
     <string name="StarCurrency">星币</string>
     <string name="TokenCurrency">代币</string>
     <string name="Snowflakes">雪花</string>

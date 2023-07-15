@@ -20,7 +20,7 @@ namespace Economy.ItemType
         public string Description { get { return string.Empty; } }
         public Sprite GetIcon(IResourceLocator resourceLocator) { return CommonSpriteTable.StarCurrencyIcon; }
         public Color Color { get { return ColorTable.PremiumItemColor; } }
-        public Price Price { get { return Price.Common(15000); } }
+        public Price Price { get { return Price.Common(1000); } }
         public ItemQuality Quality { get { return ItemQuality.Perfect; } }
 
         public void Consume(int amount)

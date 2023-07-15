@@ -44,15 +44,16 @@ namespace GameModel
 						var random = _random.CreateRandom(_starId);
 					    var pricescale = _playerSkills.PriceScale;
 					    var extraGoods = _playerSkills.HasMasterTrader ? 1 : 0;
+					    var researchItemScale = _playerSkills.HasMasterTrader ? 2 : 1;
 
 						_items = new List<IProduct>();
 						_items.Add(_productFactory.CreateRenewableMarketProduct(_itemTypeFactory.CreateFuelItem(), 100 + extraGoods*50, _starId, Market.FuelRenewalTime, 5f*pricescale));
 
 						foreach(var id in _database.FactionList.Visible().Where(faction => faction.WanderingShipsDistance <= _level).RandomUniqueElements(random.Next(2, 5 + extraGoods), random))
-							_items.Add(_productFactory.CreateRenewableMarketProduct(_itemTypeFactory.CreateResearchItem(id), random.Next(1,5), _starId, Market.TechRenewalTime, pricescale));
+							_items.Add(_productFactory.CreateRenewableMarketProduct(_itemTypeFactory.CreateResearchItem(id), random.Next(4,15 * researchItemScale), _starId, Market.TechRenewalTime, pricescale));
 
                         if (CurrencyExtensions.PremiumCurrencyAllowed)
-    						_items.Add(_productFactory.CreateRenewableMarketProduct(_itemTypeFactory.CreateCurrencyItem(Currency.Stars), random.Next(5, 15 + 5*extraGoods), _starId, Market.StarsRenewalTime, 2f*pricescale));
+    						_items.Add(_productFactory.CreateRenewableMarketProduct(_itemTypeFactory.CreateCurrencyItem(Currency.Stars), random.Next(5, 25 + 10*extraGoods), _starId, Market.StarsRenewalTime, 2f*pricescale));
 
                         foreach (var ship in _database.ShipBuildList.Playable().NormalShips().Where(item => item.Ship.Faction.WanderingShipsDistance <= _level).RandomUniqueElements(random.Next(extraGoods + 1, 5), random))
 							_items.Add(_productFactory.CreateRenewableMarketProduct(_itemTypeFactory.CreateShipItem(new CommonShip(ship), true), 1, _starId, Market.ShipRenewalTime, pricescale));

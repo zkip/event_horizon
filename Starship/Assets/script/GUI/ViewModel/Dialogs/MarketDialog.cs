@@ -48,6 +48,7 @@ namespace ViewModel
 		    [SerializeField] private Button _sellJunkButton;
 		    [SerializeField] private GameObject QuantityPanel;
 		    [SerializeField] private Slider QuantitySlider;
+		    [SerializeField] private Toggle BuyMax;
 			[SerializeField] private RadioGroupViewModel FilterGroup;
 			[SerializeField] private Common.PricePanel PricePanel;
 			[SerializeField] private GameObject DescriptionPanel;
@@ -80,7 +81,7 @@ namespace ViewModel
             public void OnItemSelected(Common.InventoryItem item)
 			{
 				_selectedItem = item;
-				_quantity = 1;
+				_quantity = _buyAll ? getTryToMaxQuantity(item.Product) : 1;
 			    ContentFiller.OnItemSelected(item);
 				UpdateButtons();
 			}
@@ -169,7 +170,21 @@ namespace ViewModel
 				ItemsGroup.SetAllTogglesOff();
 				UpdateButtons();
 			}
-			
+
+			public void OnBuyAllChanged(bool isOn)
+			{
+				_buyAll = isOn;
+
+				if(_buyAll){
+					_quantity = getTryToMaxQuantity(_selectedItem.Product);
+					QuantityText.text = _quantity.ToString();
+					QuantitySlider.value = _quantity;
+					
+					if (_selectedItem != null)
+						PricePanel.Initialize(_selectedItem.Product.Type, _selectedItem.Product.Price*_quantity);
+				}
+			}
+
 			public void OnQuantityChanged(float value)
 			{
 				_quantity = Mathf.RoundToInt(value);
@@ -184,6 +199,13 @@ namespace ViewModel
 				UpdateItems();
 			}
 
+			private int getTryToMaxQuantity(IProduct product) {
+				if (product.Price.Amount > 0)
+					return Mathf.Min(product.Quantity, product.Type.MaxItemsToConsume, product.Price.GetMaxItemsToWithdraw(_playerResources));
+				else
+					return Mathf.Min(product.Quantity, product.Type.MaxItemsToConsume);	
+			}
+			
             private void UpdateStats()
 			{
 				MoneyText.text = _playerResources.Money.ToString();
@@ -208,13 +230,7 @@ namespace ViewModel
 						_selectedItem.Product.Type.MaxItemsToConsume > 0;
 					
 					if (_selectedItem != null)
-					{
-						var product = _selectedItem.Product;
-						if (product.Price.Amount > 0)
-							quantity = Mathf.Min(product.Quantity, product.Type.MaxItemsToConsume, product.Price.GetMaxItemsToWithdraw(_playerResources));
-						else
-							quantity = Mathf.Min(product.Quantity, product.Type.MaxItemsToConsume);							
-					}
+						quantity = getTryToMaxQuantity(_selectedItem.Product);
 				}
 				else
 				{
@@ -228,16 +244,21 @@ namespace ViewModel
 
 				if (quantity > 1)
 				{
+					var initQuantity = _buyAll ? quantity : 1;
 					QuantityPanel.gameObject.SetActive(true);
 					QuantitySlider.gameObject.SetActive(true);
+					BuyMax.transform.parent.gameObject.SetActive(true);
 					QuantitySlider.maxValue = quantity;
-					QuantitySlider.value = 1;
-					QuantitySlider.onValueChanged.Invoke(1);
+					QuantitySlider.value = initQuantity;
+					QuantitySlider.onValueChanged.Invoke(initQuantity);
+					BuyMax.isOn = _buyAll;
+					
 				}
 				else
 				{
 					QuantityPanel.gameObject.SetActive(false);
 					QuantitySlider.gameObject.SetActive(false);
+					BuyMax.transform.parent.gameObject.SetActive(false);
 				}
 
 				UpdateItemDescription(_selectedItem != null ? _selectedItem.Product : null);
@@ -338,6 +359,7 @@ namespace ViewModel
 					CloseButtonClicked();
 			}
 
+			private bool _buyAll;
 			private int _quantity;
 			private Mode _mode;
 			private IInventory _playerInventory;

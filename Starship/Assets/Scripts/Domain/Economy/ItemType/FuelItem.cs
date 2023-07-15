@@ -20,7 +20,7 @@ namespace Economy.ItemType
         public string Name { get { return _localization.GetString("$FuelItem"); } }
         public string Description { get { return string.Empty; } }
         public Sprite GetIcon(IResourceLocator resourceLocator) { return CommonSpriteTable.FuelIcon; }
-        public Price Price { get { return Price.Common(1); } }
+        public Price Price { get { return Price.Common(30); } }
         public Color Color { get { return Color.cyan; } }
         public ItemQuality Quality { get { return ItemQuality.Common; } }
 

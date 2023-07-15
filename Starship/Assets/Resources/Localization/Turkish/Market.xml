@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="BuyMax">Daha Fazlasını Deneyin</string>
     <string name="StarCurrency">Yıldızlar</string>
     <string name="TokenCurrency">Jetonlar</string>
     <string name="Snowflakes">Kar Taneleri</string>

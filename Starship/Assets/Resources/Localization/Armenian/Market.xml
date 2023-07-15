@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="BuyMax">լավագույն գնումը</string>
     <string name="StarCurrency">Աստղեր</string>
     <string name="TokenCurrency">Խորհրդանիշներ</string>
     <string name="Snowflakes">ձնագնդիկներ</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
+<string name="BuyMax">더 시도</string>
 <string name="CraftRequirements">필요한것:</string>
 <string name="CraftLevel">작업실 레벨:</string>
 <string name="CraftResources">자원:</string>
@@ -15,5 +15,4 @@
 <string name="CraftInQueue">기다리는중</string>
 <string name="EmptyBuildQueue">제작 목록이 비어있습니다.</string>
 <string name="Blueprint">청사진: $1</string>
-
 </resources>

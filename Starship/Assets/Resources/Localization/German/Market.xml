@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="BuyMax">Versuchen Sie mehr</string>
     <string name="StarCurrency">Sterne</string>
     <string name="TokenCurrency">Wertmarken</string>
     <string name="Snowflakes">Schneeflocken</string>

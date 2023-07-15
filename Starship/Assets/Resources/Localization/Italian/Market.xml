@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="BuyMax">Prova di più</string>
     <string name="StarCurrency">Stelle</string>
     <string name="TokenCurrency">Gettoni</string>
     <string name="NoItemsInCategory">Nessun oggetto trovato in questa categoria</string>

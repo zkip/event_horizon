@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="BuyMax">nejlepší nákup</string>
     <string name="StarCurrency">Hvězdy</string>
     <string name="TokenCurrency">Žetony</string>
     <string name="Snowflakes">Vločky</string>
