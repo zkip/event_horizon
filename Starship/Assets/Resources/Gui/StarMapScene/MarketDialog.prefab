@@ -6486,7 +6486,7 @@ MonoBehaviour:
   _sellJunkButton: {fileID: 114183375310732162}
   QuantityPanel: {fileID: 1941137902223774}
   QuantitySlider: {fileID: 114794995274092588}
-  BuyMax: {fileID: 4282211493631014064}
+  SelectAll: {fileID: 4282211493631014064}
   FilterGroup: {fileID: 114653818374961874}
   PricePanel: {fileID: 114308487889277476}
   DescriptionPanel: {fileID: 1836181726297590}

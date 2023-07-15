@@ -48,7 +48,7 @@ namespace ViewModel
 		    [SerializeField] private Button _sellJunkButton;
 		    [SerializeField] private GameObject QuantityPanel;
 		    [SerializeField] private Slider QuantitySlider;
-		    [SerializeField] private Toggle BuyMax;
+		    [SerializeField] private Toggle SelectAll;
 			[SerializeField] private RadioGroupViewModel FilterGroup;
 			[SerializeField] private Common.PricePanel PricePanel;
 			[SerializeField] private GameObject DescriptionPanel;
@@ -81,7 +81,7 @@ namespace ViewModel
             public void OnItemSelected(Common.InventoryItem item)
 			{
 				_selectedItem = item;
-				_quantity = _buyAll ? getTryToMaxQuantity(item.Product) : 1;
+				_quantity = _selectAll ? getTryToMaxQuantity(item.Product) : 1;
 			    ContentFiller.OnItemSelected(item);
 				UpdateButtons();
 			}
@@ -173,9 +173,9 @@ namespace ViewModel
 
 			public void OnBuyAllChanged(bool isOn)
 			{
-				_buyAll = isOn;
+				_selectAll = isOn;
 
-				if(_buyAll){
+				if(_selectAll){
 					_quantity = getTryToMaxQuantity(_selectedItem.Product);
 					QuantityText.text = _quantity.ToString();
 					QuantitySlider.value = _quantity;
@@ -244,27 +244,27 @@ namespace ViewModel
 
 				if (quantity > 1)
 				{
-					var initQuantity = _buyAll ? quantity : 1;
+					var initQuantity = _selectAll ? quantity : 1;
 					QuantityPanel.gameObject.SetActive(true);
 					QuantitySlider.gameObject.SetActive(true);
-					BuyMax.transform.parent.gameObject.SetActive(true);
 					QuantitySlider.maxValue = quantity;
 					QuantitySlider.value = initQuantity;
 					QuantitySlider.onValueChanged.Invoke(initQuantity);
-					BuyMax.isOn = _buyAll;
-					
+					SelectAll.isOn = _selectAll;
 				}
 				else
 				{
 					QuantityPanel.gameObject.SetActive(false);
 					QuantitySlider.gameObject.SetActive(false);
-					BuyMax.transform.parent.gameObject.SetActive(false);
 				}
 
-				UpdateItemDescription(_selectedItem != null ? _selectedItem.Product : null);
+				
+				SelectAll.transform.parent.gameObject.SetActive(_mode == Mode.Buy && quantity > 1);
+
+				UpdateItemDescription(_selectedItem != null ? _selectedItem.Product : null, _quantity);
 			}
 
-			private void UpdateItemDescription(IProduct product)
+			private void UpdateItemDescription(IProduct product, int quantity = 1)
 			{
 				if (product != null)
 				{
@@ -274,7 +274,7 @@ namespace ViewModel
 					NameText.text = _localization.GetString(product.Type.Name);
                     DescrtiptionText.gameObject.SetActive(!string.IsNullOrEmpty(DescrtiptionText.text = product.Type.Description));
 				    NameText.color = DescrtiptionText.color = ColorTable.QualityColor(product.Type.Quality);
-					PricePanel.Initialize(product.Type, product.Price);
+					PricePanel.Initialize(product.Type, product.Price * quantity);
 				}
 				else
 				{
@@ -359,7 +359,7 @@ namespace ViewModel
 					CloseButtonClicked();
 			}
 
-			private bool _buyAll;
+			private bool _selectAll;
 			private int _quantity;
 			private Mode _mode;
 			private IInventory _playerInventory;
