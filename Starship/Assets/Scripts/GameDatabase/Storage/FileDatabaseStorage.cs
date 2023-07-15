@@ -6,19 +6,27 @@ namespace GameDatabase.Storage
 {
     public class FileDatabaseStorage : IDataStorage
     {
-        // TODO: implement encryption
         public FileDatabaseStorage(string filename)
         {
             var data = File.ReadAllBytes(filename);
 
             var size = (uint)(data.Length - 1);
+            var checksum = data[size];
+
+            uint w = 0x12345678 ^ size;
+            uint z = 0x87654321 ^ size;
+
+             // Now decrypt and check checksum
             byte checksumm = 0;
             for (var i = 0; i < size; ++i)
             {
+                data[i] = (byte)(data[i] ^ (byte)random(ref w, ref z));
                 checksumm += data[i];
             }
 
-            if (checksumm != data[size])
+            checksumm = (byte)(checksumm ^ (byte)random(ref w, ref z));
+
+            if (checksum != checksumm)
                 throw new Exception($"FileDatabaseStorage: CheckSumm error - {checksumm} {data[data.Length - 1]}");
 
             _content = ZlibStream.UncompressBuffer(data);
@@ -35,6 +43,13 @@ namespace GameDatabase.Storage
             }
 
             _startIndex = index;
+        }
+
+        private static uint random(ref uint w, ref uint z)
+        {
+            z = 36969 * (z & 65535) + (z >> 16);
+            w = 18000 * (w & 65535) + (w >> 16);
+            return (z << 16) + w;  /* 32-bit result */
         }
 
         public string Name { get; }
