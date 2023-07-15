@@ -21,6 +21,7 @@
     <string name="Energy">Enerji</string>
     <string name="ShieldPoints">Kalkan</string>
     <string name="ShieldRechargeRate">Şarj oranı</string>
+    <string name="ShieldRechargeRateCooldown">Kalkan yeniden doldurma bekleme süresi</string>
     <string name="RepairRate">Tamir oranı</string>
     <string name="RechargeRate">Şarj oranı</string>
     <string name="Weight">Ağırlık</string>

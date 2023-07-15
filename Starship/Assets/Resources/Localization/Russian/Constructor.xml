@@ -21,6 +21,7 @@
     <string name="Energy">Энергия</string>
     <string name="ShieldPoints">Щит</string>
     <string name="ShieldRechargeRate">Перезарядка щита</string>
+    <string name="ShieldRechargeRateCooldown">Время перезарядки щита</string>
     <string name="RepairRate">Ремонт</string>
     <string name="RechargeRate">Перезарядка</string>
     <string name="Weight">Масса</string>

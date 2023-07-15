@@ -21,6 +21,7 @@
     <string name="Energy">Energie</string>
     <string name="ShieldPoints">Štít</string>
     <string name="ShieldRechargeRate">Rychlost dobíjení</string>
+    <string name="ShieldRechargeRateCooldown">Cooldown dobíjení štítu</string>
     <string name="RepairRate">Rychlost oprav</string>
     <string name="RechargeRate">Rychlost dobíjení</string>
     <string name="Weight">Hmotnost</string>

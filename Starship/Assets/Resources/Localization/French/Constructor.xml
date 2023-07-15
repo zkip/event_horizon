@@ -21,6 +21,7 @@
     <string name="Energy">Énergie</string>
     <string name="ShieldPoints">Points de bouclier</string>
     <string name="ShieldRechargeRate">Taux de recharge</string>
+    <string name="ShieldRechargeRateCooldown">Temps de recharge de bouclier</string>
     <string name="RepairRate">Taux de réparation</string>
     <string name="RechargeRate">Taux de recharge</string>
     <string name="Weight">Poids</string>

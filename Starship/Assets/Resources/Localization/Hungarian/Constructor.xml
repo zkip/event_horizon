@@ -21,6 +21,7 @@
     <string name="Energy">Energia</string>
     <string name="ShieldPoints">Pajzspontok</string>
     <string name="ShieldRechargeRate">Pajzs regenerálódás</string>
+    <string name="ShieldRechargeRateCooldown">Pajzs újratöltés hűtés</string>
     <string name="RepairRate">Javítási sebesség</string>
     <string name="RechargeRate">Energiatermelés</string>
     <string name="Weight">Súly</string>

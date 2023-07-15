@@ -18,11 +18,14 @@
     <string name="EngineSize">引擎尺寸</string>
     <string name="Damage">攻击</string>
     <string name="HitPoints">装甲值</string>
+    <string name="RepairRateCooldown">修复冷却</string>
     <string name="Energy">能量</string>
     <string name="ShieldPoints">护盾值</string>
     <string name="ShieldRechargeRate">护盾充能速率</string>
+    <string name="ShieldRechargeRateCooldown">护盾充能冷却</string>
     <string name="RepairRate">修复速率</string>
     <string name="RechargeRate">再充速率</string>
+    <string name="RechargeRateCooldown">充能冷却</string>
     <string name="Weight">重量</string>
     <string name="RamDamage">撞击伤害</string>
     <string name="DamageAbsorption">能量吸收</string>
@@ -83,6 +86,8 @@
     <string name="WeaponArea">影响范围</string>
     <string name="WeaponImpulse">冲击力</string>
     <string name="DamageType">伤害类型</string>
+    <string name="WeaponLifetime">武器生命</string>
+    <string name="WeaponHP">武器耐久</string>
     <string name="ImpactDamage">动能</string>
     <string name="EnergyDamage">能量</string>
     <string name="HeatDamage">热能</string>
@@ -113,6 +118,7 @@
     <string name="GroupSpecial">特殊组件</string>
     <string name="GroupShip">$1的组件</string>
     <string name="GroupShips">飞船</string>
+    <string name="GroupSatellites">僚机组</string>
     <string name="GroupWeaponAny">任意槽位的武器</string>
     <string name="GroupWeaponC">弹道武器</string>
     <string name="GroupWeaponL">光束武器</string>

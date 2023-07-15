@@ -21,6 +21,7 @@
     <string name="Energy">Energia</string>
     <string name="ShieldPoints">Punkty tarczy</string>
     <string name="ShieldRechargeRate">Szybkość ładowania</string>
+    <string name="ShieldRechargeRateCooldown">Czas odnowienia tarczy</string>
     <string name="RepairRate">Szybkość napraw</string>
     <string name="RechargeRate">Szybkość ładowania</string>
     <string name="Weight">Waga</string>

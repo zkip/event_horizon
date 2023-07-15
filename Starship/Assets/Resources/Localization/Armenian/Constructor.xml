@@ -21,6 +21,7 @@
     <string name="Energy">Էներգիա</string>
     <string name="ShieldPoints">Վահանի միավորներ</string>
     <string name="ShieldRechargeRate">Վերալիցքավորման արագություն</string>
+    <string name="ShieldRechargeRateCooldown">Վահանի վերալիցքավորման սառեցում</string>
     <string name="RepairRate">Վերանորոգման արագություն</string>
     <string name="RechargeRate">Վերալիցքավորման արագություն</string>
     <string name="Weight">Քաշ</string>

@@ -21,6 +21,7 @@
     <string name="Energy">Energie</string>
     <string name="ShieldPoints">Schildpunkte</string>
     <string name="ShieldRechargeRate">Aufladerate</string>
+    <string name="ShieldRechargeRateCooldown">Abklingzeit der Schildaufladung</string>
     <string name="RepairRate">Reperaturrate</string>
     <string name="RechargeRate">Aufladerate</string>
     <string name="Weight">Gewicht</string>

@@ -21,6 +21,7 @@
     <string name="Energy">Energía</string>
     <string name="ShieldPoints">Puntos de escudo</string>
     <string name="ShieldRechargeRate">Tasa de recarga</string>
+    <string name="ShieldRechargeRateCooldown">Enfriamiento de recarga de escudo</string>
     <string name="RepairRate">Velocidad de Reparación</string>
     <string name="RechargeRate">Velocidad de Recarga</string>
     <string name="Weight">Peso</string>
