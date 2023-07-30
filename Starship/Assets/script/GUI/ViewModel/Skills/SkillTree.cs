@@ -131,7 +131,7 @@ namespace ViewModel.Skills
             _resetButton.interactable = isEnough && _playerSkills.PointsSpent > 0;
         }
 
-        private Price ResetPrice { get { return Economy.Price.Premium(_session.Upgrades.ResetCounter*10); } }
+        private Price ResetPrice { get { return Economy.Price.Premium(_session.Upgrades.ResetCounter+4); } }
 
         private void OnCancel()
         {
