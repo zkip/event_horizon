@@ -208,7 +208,7 @@ namespace Game.Exploration
             switch (objective.Type)
             {
                 case ObjectiveType.Container:
-                    return _lootGenerator.GetContainerLoot(_planet.Faction, _planet.Level, objective.Seed);
+                    return _lootGenerator.GetContainerLoot(_planet.Type, _planet.Level, objective.Seed);
                 case ObjectiveType.ShipWreck:
                     return _lootGenerator.GetShipWreckLoot(_planet.Faction, _planet.Level, objective.Seed);
                 case ObjectiveType.Outpost:
@@ -224,6 +224,10 @@ namespace Game.Exploration
                 default:
                     throw new ArgumentOutOfRangeException("Wrong objective type: " + objective.Type);
             }
+        }
+        public IEnumerable<IProduct> GetExploreCompleteLoot()
+        {
+            return _lootGenerator.GetExplorationRewardLoot(_planet.Type, _planet.Level, Seed);
         }
 
         private bool IsValidShipForWreck(Ship ship)

@@ -137,8 +137,10 @@ namespace Combat.Manager
             loot.Consume();
             _guiManager.OpenWindow(Gui.Exploration.WindowNames.LootPanel, new WindowArgs(loot));
 
-            if (_objectives.Count == 0)
+            if (_objectives.Count == 0) {
+                _exploration.GetExploreCompleteLoot().ToList().Consume();
                 DelayedExit();
+            }
         }
 
         public void Tick()
